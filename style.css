@@ -2,26 +2,79 @@
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
 }
-.btn {
-    width:auto;
-    padding: 15px 20px;
-    text-align: center;
-    text-transform: uppercase;
-    border: 2px solid #000000;
-    background: #FFFFFF;
+html, body {
+    padding: 0;
+    margin: 0;
+}
+.container {
+    padding: 10px;
+}
+.myBtn {
+    display: block;
+    margin: auto;
+    padding: 20px 40px;
+    background: none;
     outline: none;
-    transition-duration: 0.4s;
-}
-
-.btn:hover {
-    cursor: pointer;
+    border: 2px solid crimson;
+    color: crimson;
     font-weight: 500;
-    padding: 13px 18px;
+    text-transform: uppercase;
+    transition: ease-in-out all 0.4s;
+    border-radius: 2px;
+    margin-bottom: 40px;
 }
 
-.onClick{
-    cursor: pointer;
+.myBtn:hover {
+    background: crimson;
+    color: #FFFFFF;
+}
+
+.myDiv {
+    margin: auto;
+    margin-bottom: 40px;
+    padding: 40px;
+    border: 2px solid crimson;
+    max-width: 700px;
+}
+.myDiv p {
+    margin-bottom: 21px;
+}
+
+.myDiv .div0button {
+    display: inline-block;
+    width: auto;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+.div0 {
+    display: none;
+}
+.div1 {
+    display: none;
+}
+.div2 {
+    display: none;
+}
+.myDivUl {
+    display: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.myDivUl li {
+    width: 100%;
+    background: crimson;
+    height: 40px;
+    margin-bottom: 16px;
+    border-radius: 2px;
+    padding: 12px 10px;
+    color: #FFFFFF;
+    font-size: 14px;
     font-weight: 500;
-    padding: 13px 18px;
 }
 
+.display {
+    display: block;
+}

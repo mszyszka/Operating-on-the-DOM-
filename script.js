@@ -1,27 +1,59 @@
-    let elements = document.querySelectorAll('.btn');
+// let clickOnMeButton = document.querySelector('.clickOnMe');
+// clickOnMeButton.addEventListener('click', function(){
+//     document.querySelector('.div0').classList.toggle('display');
+// })
 
-    function toggleClass() {
-        
-    }
+// let firstOptionBtn = document.querySelector('.firstOptionBtn');
+// firstOptionBtn.addEventListener('click', function(){
+//     document.querySelector('.div1').classList.toggle('display');
+// })
 
-    for (let i = 0; i < elements.length; i++) {
-            let element = elements[i];
-            let elementId = "element" + i;
+// let secondOptionBtn = document.querySelector('.secondOptionBtn');
+// secondOptionBtn.addEventListener('click', function(){
+//     document.querySelector('.div2').classList.toggle('display');
+// })
 
-            element.setAttribute('id', elementId);
-            element.addEventListener('click', toggleClass());
-        }
-    
-    
-    
-    // let elements = document.querySelectorAll('.btn');
-
-    // for (let i = 0; i < elements.length; i++) {
-    //     // let element = elements[i];
-    //     elements[i].addEventListener('click', function toggleClass() {
-            
-    //     });
-    // }
+// let generateListBtn = document.querySelector('.generateList');
+// generateListBtn.addEventListener('click', function() {
+//     document.querySelector('.myDivUl').classList.toggle('display');
+// });
 
 
+function createDiv0() {
+
+    let h1Text = 'Taki nagłówek dla diva';
+    let pText = 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur';
+    let container = document.querySelector('.container');
+
+
+    let div0 = document.createElement('div');
+    div0.setAttribute('class', 'myDiv div0');
+
+    let h1 = document.createElement('h1');
+    h1.innerText = h1Text;
+
+    let p = document.createElement('p');
+    p.innerText = pText;
+
+    let firstOptionBtn = document.createElement('div');
+    firstOptionBtn.innerText = 'first option';
+    firstOptionBtn.setAttribute('class', 'myBtn div0button firstOptionBtn');
+
+    let secondOptionBtn = document.createElement('div');
+    secondOptionBtn.innerText = 'second option';
+
+    secondOptionBtn.setAttribute('class', 'myBtn div0button secondOptionBtn');
+
+    div0.appendChild(h1);
+    div0.appendChild(p);
+    div0.appendChild(firstOptionBtn);
+    div0.appendChild(secondOptionBtn);
+
+    container.appendChild(div0);
+    div0.classList.toggle('display');
+
+}
+
+let clickOnMeButton = document.querySelector('.clickOnMe');
+clickOnMeButton.addEventListener('click', createDiv0);
 
