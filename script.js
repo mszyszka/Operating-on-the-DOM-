@@ -57,3 +57,36 @@ function createDiv0() {
 let clickOnMeButton = document.querySelector('.clickOnMe');
 clickOnMeButton.addEventListener('click', createDiv0);
 
+function createDiv1() {
+
+    let container = document.querySelector('.container');
+    let buttonTxt = document.createTextNode('generate list');
+
+    let div1 = document.createElement('div');
+    div1.setAttribute('class', 'myDiv div1');
+
+    let button = document.createElement('button');
+    button.setAttribute('class', 'myBtn generateList');
+    button.innerText(buttonTxt);
+    button.addEventListener('click', createUl);
+
+    let list = document.createElement('ul');
+    list.setAttribute('class', 'myDivUl');
+
+    div1.appendChild('button');
+    container.appendChild('div1');
+    div1.classList.toggle('display');
+
+}
+
+function createUl() {
+
+    console.log('jaja');
+    // let container = document.querySelector('.div1');
+
+    // let list = document.createElement('ul');
+    // list.setAttribute('class', 'myDivUl');
+
+}
+
+let firstOptionBtn = document.querySelector('.firstOptionBtn');
