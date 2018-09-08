@@ -38,6 +38,7 @@ function createDiv0() {
     let firstOptionBtn = document.createElement('div');
     firstOptionBtn.innerText = 'first option';
     firstOptionBtn.setAttribute('class', 'myBtn div0button firstOptionBtn');
+    firstOptionBtn.addEventListener('click', createDiv1);
 
     let secondOptionBtn = document.createElement('div');
     secondOptionBtn.innerText = 'second option';
@@ -60,33 +61,85 @@ clickOnMeButton.addEventListener('click', createDiv0);
 function createDiv1() {
 
     let container = document.querySelector('.container');
-    let buttonTxt = document.createTextNode('generate list');
 
     let div1 = document.createElement('div');
     div1.setAttribute('class', 'myDiv div1');
 
     let button = document.createElement('button');
     button.setAttribute('class', 'myBtn generateList');
-    button.innerText(buttonTxt);
-    button.addEventListener('click', createUl);
+    button.innerText = 'generate list';
+    button.addEventListener('click', createInput);
 
     let list = document.createElement('ul');
     list.setAttribute('class', 'myDivUl');
 
-    div1.appendChild('button');
-    container.appendChild('div1');
+    div1.appendChild(button);
+    container.appendChild(div1);
     div1.classList.toggle('display');
 
 }
 
-function createUl() {
+function createInput() {
+    let div1 = document.querySelector('.div1');
 
-    console.log('jaja');
-    // let container = document.querySelector('.div1');
+    let ul = document.createElement('ul');
+    ul.setAttribute('class', 'myDivUl');
 
-    // let list = document.createElement('ul');
-    // list.setAttribute('class', 'myDivUl');
+    
+    let liElements = [
+        li0 = document.createElement('li'),
+        li0.innerText = 'yolo',
+
+        li1 = document.createElement('li'),
+        li1.innerText = 'yolo',
+
+        li2 = document.createElement('li'),
+        li2.innerText = 'yolo',
+
+    ]
+
+    for (let i = 0; i > liElements.length; i++) {
+        let liElement = liElements[i];
+        liElement.setAttribute('class', 'liStyle');
+        
+    }
+
+    console.log(typeof(liElements));
+
+    let input = document.createElement('input');
+    input.setAttribute('type', 'text');
+    input.setAttribute('class', 'div1input');
+
+    let checkBtn = document.createElement('button');
+    checkBtn.setAttribute('class', 'myBtn');
+    checkBtn.innerText = 'check password';
+    checkBtn.addEventListener('click', checkPassword);
+
+    ul.appendChild(liElements[0]);
+    ul.appendChild(liElements[1]);
+    ul.appendChild(liElements[2]);
+
+    div1.appendChild(ul);
+    div1.appendChild(input);
+    div1.appendChild(checkBtn);
 
 }
 
-let firstOptionBtn = document.querySelector('.firstOptionBtn');
+function checkPassword() {
+
+}
+
+
+// function createUl() {
+
+//     let div1 = document.querySelector('.div1');
+
+//     let input = document.createElement('input');
+//     input.setAttribute('type', 'text');
+//     input.setAttribute('class', 'div1input');
+
+//     var inputValue = document.querySelector('.div1input').nodeValue;
+
+
+// }
+
