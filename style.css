@@ -75,6 +75,14 @@ html, body {
     font-weight: 500;
 }
 
+.div1 input {
+    outline: none;
+    width: 50%;
+    margin: 24px 0 40px 0;
+    border: 1px solid crimson;
+    height: 30px;
+    padding: 0 10px;
+}
 
 .display {
     display: block;

@@ -65,38 +65,33 @@ function createDiv1() {
     let div1 = document.createElement('div');
     div1.setAttribute('class', 'myDiv div1');
 
+    let p = document.createElement('p');
+    p.innerText = 'Show me some pictures from best serials';
+
     let button = document.createElement('button');
     button.setAttribute('class', 'myBtn generateList');
-    button.innerText = 'generate list';
-    button.addEventListener('click', createInput);
+    button.innerText = 'Show pictures';
+    button.addEventListener('click', createHintsList);
+    button.addEventListener('click', createPasswordSection);
 
     let list = document.createElement('ul');
     list.setAttribute('class', 'myDivUl');
 
+    div1.appendChild(p);
     div1.appendChild(button);
     container.appendChild(div1);
     div1.classList.toggle('display');
 
 }
 
-function createInput() {
+function createHintsList() {
     let div1 = document.querySelector('.div1');
 
+    let p = document.createElement('p');
+    p.innerText = 'Not so fast. You need to pass correct password to see pictures. Here are a few hints. ';
+
     let ul = document.createElement('ul');
-    ul.setAttribute('class', 'myDivUl');
-
-    
-    // let liElements = [
-    //     li0 = document.createElement('li'),
-    //     li0.innerText = 'yolo',
-
-    //     li1 = document.createElement('li'),
-    //     li1.innerText = 'yolo',
-
-    //     li2 = document.createElement('li'),
-    //     li2.innerText = 'yolo',
-
-    // ]
+    ul.setAttribute('class', 'myDivUl display');
 
     let liElements = {
         li0: document.createElement('li'),
@@ -104,17 +99,25 @@ function createInput() {
         li2: document.createElement('li'),
     }
 
-
-    liElements.li0.innerText = 'li0';
-    liElements.li1.innerText = 'li1';
-    liElements.li2.innerText = 'li2';
-
+    liElements.li0.innerText = 'Oranges';
+    liElements.li1.innerText = 'Apples';
+    liElements.li2.innerText = 'DOM';
 
     for (let i = 0; i > liElements.length; i++) {
         let liElement = liElements[i];
         liElement.setAttribute('class', 'liStyle');
-
     }
+    
+    ul.appendChild(liElements.li0);
+    ul.appendChild(liElements.li1);
+    ul.appendChild(liElements.li2);
+
+    div1.appendChild(p);
+    div1.appendChild(ul);
+}
+
+function createPasswordSection() {
+    let div1 = document.querySelector('.div1');
 
     let input = document.createElement('input');
     input.setAttribute('type', 'text');
@@ -125,19 +128,25 @@ function createInput() {
     checkBtn.innerText = 'check password';
     checkBtn.addEventListener('click', checkPassword);
 
-    
-    ul.appendChild(liElements.li0);
-    ul.appendChild(liElements.li1);
-    ul.appendChild(liElements.li2);
-
-    div1.appendChild(ul);
     div1.appendChild(input);
     div1.appendChild(checkBtn);
 
 }
-
 function checkPassword() {
+    let password = 'DOM';
+    let input = document.querySelector('.div1input');
+    let inputValue = input.value;
 
+    if ( inputValue === password) {
+        createGalery();
+    } else {
+        console.log('sorry ale nie');
+    }
+
+}
+
+function createGalery(){
+    console.log('będzie galeria');
 }
 
 
