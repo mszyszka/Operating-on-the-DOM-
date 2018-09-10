@@ -86,25 +86,35 @@ function createInput() {
     ul.setAttribute('class', 'myDivUl');
 
     
-    let liElements = [
-        li0 = document.createElement('li'),
-        li0.innerText = 'yolo',
+    // let liElements = [
+    //     li0 = document.createElement('li'),
+    //     li0.innerText = 'yolo',
 
-        li1 = document.createElement('li'),
-        li1.innerText = 'yolo',
+    //     li1 = document.createElement('li'),
+    //     li1.innerText = 'yolo',
 
-        li2 = document.createElement('li'),
-        li2.innerText = 'yolo',
+    //     li2 = document.createElement('li'),
+    //     li2.innerText = 'yolo',
 
-    ]
+    // ]
+
+    let liElements = {
+        li0: document.createElement('li'),
+        li1: document.createElement('li'),
+        li2: document.createElement('li'),
+    }
+
+
+    liElements.li0.innerText = 'li0';
+    liElements.li1.innerText = 'li1';
+    liElements.li2.innerText = 'li2';
+
 
     for (let i = 0; i > liElements.length; i++) {
         let liElement = liElements[i];
         liElement.setAttribute('class', 'liStyle');
-        
-    }
 
-    console.log(typeof(liElements));
+    }
 
     let input = document.createElement('input');
     input.setAttribute('type', 'text');
@@ -115,9 +125,10 @@ function createInput() {
     checkBtn.innerText = 'check password';
     checkBtn.addEventListener('click', checkPassword);
 
-    ul.appendChild(liElements[0]);
-    ul.appendChild(liElements[1]);
-    ul.appendChild(liElements[2]);
+    
+    ul.appendChild(liElements.li0);
+    ul.appendChild(liElements.li1);
+    ul.appendChild(liElements.li2);
 
     div1.appendChild(ul);
     div1.appendChild(input);
