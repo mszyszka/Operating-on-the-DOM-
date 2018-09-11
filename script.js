@@ -1,24 +1,3 @@
-// let clickOnMeButton = document.querySelector('.clickOnMe');
-// clickOnMeButton.addEventListener('click', function(){
-//     document.querySelector('.div0').classList.toggle('display');
-// })
-
-// let firstOptionBtn = document.querySelector('.firstOptionBtn');
-// firstOptionBtn.addEventListener('click', function(){
-//     document.querySelector('.div1').classList.toggle('display');
-// })
-
-// let secondOptionBtn = document.querySelector('.secondOptionBtn');
-// secondOptionBtn.addEventListener('click', function(){
-//     document.querySelector('.div2').classList.toggle('display');
-// })
-
-// let generateListBtn = document.querySelector('.generateList');
-// generateListBtn.addEventListener('click', function() {
-//     document.querySelector('.myDivUl').classList.toggle('display');
-// });
-
-
 function createDiv0() {
 
     let h1Text = 'Taki nagłówek dla diva';
@@ -150,16 +129,4 @@ function createGalery(){
 }
 
 
-// function createUl() {
-
-//     let div1 = document.querySelector('.div1');
-
-//     let input = document.createElement('input');
-//     input.setAttribute('type', 'text');
-//     input.setAttribute('class', 'div1input');
-
-//     var inputValue = document.querySelector('.div1input').nodeValue;
-
-
-// }
 
