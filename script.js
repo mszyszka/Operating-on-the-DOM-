@@ -47,17 +47,19 @@ function createDiv1() {
     let p = document.createElement('p');
     p.innerText = 'Show me some pictures from best serials';
 
-    let button = document.createElement('button');
-    button.setAttribute('class', 'myBtn generateList');
-    button.innerText = 'Show pictures';
-    button.addEventListener('click', createHintsList);
-    button.addEventListener('click', createPasswordSection);
+    let showPicturesBtn = document.createElement('button');
+    showPicturesBtn.setAttribute('class', 'myBtn showPicturesBtn');
+    showPicturesBtn.innerText = 'Show pictures';
+    showPicturesBtn.addEventListener('click', createHintsList);
+    showPicturesBtn.addEventListener('click', createPasswordSection);
+    
+
 
     let list = document.createElement('ul');
     list.setAttribute('class', 'myDivUl');
 
     div1.appendChild(p);
-    div1.appendChild(button);
+    div1.appendChild(showPicturesBtn);
     container.appendChild(div1);
     div1.classList.toggle('display');
 
@@ -96,6 +98,10 @@ function createHintsList() {
 }
 
 function createPasswordSection() {
+    showPicturesBtn = document.querySelector('.showPicturesBtn');
+    showPicturesBtn.removeEventListener('click', createHintsList);
+    showPicturesBtn.removeEventListener('click', createPasswordSection);
+
     let div1 = document.querySelector('.div1');
 
     let input = document.createElement('input');
@@ -103,15 +109,18 @@ function createPasswordSection() {
     input.setAttribute('class', 'div1input');
 
     let checkBtn = document.createElement('button');
-    checkBtn.setAttribute('class', 'myBtn');
+    checkBtn.setAttribute('class', 'myBtn checkBtn');
     checkBtn.innerText = 'check password';
     checkBtn.addEventListener('click', checkPassword);
+    
 
     div1.appendChild(input);
     div1.appendChild(checkBtn);
 
 }
+
 function checkPassword() {
+    
     let password = 'DOM';
     let input = document.querySelector('.div1input');
     let inputValue = input.value;
@@ -119,13 +128,53 @@ function checkPassword() {
     if ( inputValue === password) {
         createGalery();
     } else {
-        console.log('sorry ale nie');
+        alert('You missed...');
     }
-
 }
 
 function createGalery(){
-    console.log('będzie galeria');
+
+    let container = document.querySelector('.container');
+
+    let div2 = document.createElement('div');
+    div2.setAttribute('class', 'div2 myDiv galeryDiv');
+
+    let photoDiv0 = document.createElement('div');
+    photoDiv0.setAttribute('class', 'photoDiv');
+
+    let photoDiv1 = document.createElement('div');
+    photoDiv1.setAttribute('class', 'photoDiv');
+
+    let photoDiv2 = document.createElement('div');
+    photoDiv2.setAttribute('class', 'photoDiv');
+
+    let photoDiv3 = document.createElement('div');
+    photoDiv3.setAttribute('class', 'photoDiv');
+
+    let img0 = document.createElement('img');
+    img0.setAttribute('src', 'img/dark.jpeg');
+
+    let img1 = document.createElement('img');
+    img1.setAttribute('src', 'img/ozark.jpeg');
+
+    let img2 = document.createElement('img');
+    img2.setAttribute('src', 'img/mindhunter.jpg');
+
+    let img3 = document.createElement('img');
+    img3.setAttribute('src', 'img/breakingbad.jpg');
+    
+    photoDiv0.appendChild(img0);
+    photoDiv1.appendChild(img1);
+    photoDiv2.appendChild(img2);
+    photoDiv3.appendChild(img3);
+
+
+    div2.appendChild(photoDiv0);
+    div2.appendChild(photoDiv1);
+    div2.appendChild(photoDiv2);
+    div2.appendChild(photoDiv3);
+
+    container.appendChild(div2);
 }
 
 
