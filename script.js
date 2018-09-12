@@ -1,9 +1,7 @@
 function createDiv0() {
-
     let h1Text = 'Taki nagłówek dla diva';
     let pText = 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur';
     let container = document.querySelector('.container');
-
 
     let div0 = document.createElement('div');
     div0.setAttribute('class', 'myDiv div0');
@@ -14,15 +12,15 @@ function createDiv0() {
     let p = document.createElement('p');
     p.innerText = pText;
 
-    let firstOptionBtn = document.createElement('div');
+    let firstOptionBtn = document.createElement('button');
     firstOptionBtn.innerText = 'first option';
     firstOptionBtn.setAttribute('class', 'myBtn div0button firstOptionBtn');
     firstOptionBtn.addEventListener('click', createDiv1);
 
-    let secondOptionBtn = document.createElement('div');
+    let secondOptionBtn = document.createElement('button');
     secondOptionBtn.innerText = 'second option';
-
     secondOptionBtn.setAttribute('class', 'myBtn div0button secondOptionBtn');
+    secondOptionBtn.addEventListener('click', createDiv3);
 
     div0.appendChild(h1);
     div0.appendChild(p);
@@ -31,14 +29,12 @@ function createDiv0() {
 
     container.appendChild(div0);
     div0.classList.toggle('display');
-
 }
 
 let clickOnMeButton = document.querySelector('.clickOnMe');
 clickOnMeButton.addEventListener('click', createDiv0);
 
 function createDiv1() {
-
     let container = document.querySelector('.container');
 
     let div1 = document.createElement('div');
@@ -53,10 +49,6 @@ function createDiv1() {
     showPicturesBtn.addEventListener('click', createHintsList);
     showPicturesBtn.addEventListener('click', createPasswordSection);
 
-
-    
-
-
     let list = document.createElement('ul');
     list.setAttribute('class', 'myDivUl');
 
@@ -64,7 +56,6 @@ function createDiv1() {
     div1.appendChild(showPicturesBtn);
     container.appendChild(div1);
     div1.classList.toggle('display');
-
 }
 
 function createHintsList() {
@@ -90,7 +81,7 @@ function createHintsList() {
         let liElement = liElements[i];
         liElement.setAttribute('class', 'liStyle');
     }
-    
+
     ul.appendChild(liElements.li0);
     ul.appendChild(liElements.li1);
     ul.appendChild(liElements.li2);
@@ -114,7 +105,7 @@ function createPasswordSection() {
     let input = document.createElement('input');
     input.setAttribute('type', 'text');
     input.setAttribute('class', 'div1input');
-    input.addEventListener('keyup', function(e) {
+    input.addEventListener('keyup', function (e) {
         e.preventDefault();
         if (e.keyCode === 13) {
             document.querySelector('.checkBtn').click();
@@ -123,35 +114,39 @@ function createPasswordSection() {
 
     div1.appendChild(input);
     div1.appendChild(checkBtn);
-
 }
 
 function checkPassword() {
-    
     let password = 'DOM';
     let input = document.querySelector('.div1input');
     let inputValue = input.value;
-    
-    if ( inputValue === password) {
-        createGalery();
+
+    if (inputValue === password) {
+        createDiv2();
     } else {
         alert('You missed...');
     }
 
     let checkBtn = document.querySelector('.checkBtn');
     checkBtn.removeEventListener('click', checkPassword);
-    
 }
 
-function createGalery(){
-
+function createDiv2() {
     let container = document.querySelector('.container');
+
+    let div2 = document.createElement('div');
+    div2.setAttribute('class', 'div2 myDiv galeryDiv');
 
     let p = document.createElement('p');
     p.innerText = 'Great! Here I have some pictures for you :)'
-    
-    let div2 = document.createElement('div');
-    div2.setAttribute('class', 'div2 myDiv galeryDiv');
+
+    let button = document.createElement('button');
+    button.setAttribute('class', 'myBtn relodeBtn');
+    button.innerText = 'Relode page';
+    button.addEventListener('click', function reload() {
+        location.reload();
+    })
+
 
     let photoDiv0 = document.createElement('div');
     photoDiv0.setAttribute('class', 'photoDiv');
@@ -176,7 +171,7 @@ function createGalery(){
 
     let img3 = document.createElement('img');
     img3.setAttribute('src', 'img/breakingbad.jpg');
-    
+
     photoDiv0.appendChild(img0);
     photoDiv1.appendChild(img1);
     photoDiv2.appendChild(img2);
@@ -187,9 +182,34 @@ function createGalery(){
     div2.appendChild(photoDiv1);
     div2.appendChild(photoDiv2);
     div2.appendChild(photoDiv3);
+    div2.appendChild(button);
 
     container.appendChild(div2);
 }
 
 
+function createDiv3() {
+    let div3 = document.createElement('div');
+    div3.setAttribute('class', 'myDiv div3');
+    div3.addEventListener('mousemove', userMovingMouse)
+
+    let p = document.createElement('p');
+    p.innerText = 'Move cursor or finger across this field for five seconds';
+
+    let container = document.querySelector('.container');
+
+    div3.appendChild(p);
+    container.appendChild(div3);
+}
+
+function userMovingMouse() {
+    let myNumber = '100';
+    let counter = MouseEvent.toString;
+
+    console.log(counter);
+
+    if (counter == myNumber) {
+        alert('mamy to');
+    }
+}
 
