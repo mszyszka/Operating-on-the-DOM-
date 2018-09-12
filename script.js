@@ -52,6 +52,8 @@ function createDiv1() {
     showPicturesBtn.innerText = 'Show pictures';
     showPicturesBtn.addEventListener('click', createHintsList);
     showPicturesBtn.addEventListener('click', createPasswordSection);
+
+
     
 
 
@@ -99,20 +101,25 @@ function createHintsList() {
 
 function createPasswordSection() {
     showPicturesBtn = document.querySelector('.showPicturesBtn');
-    showPicturesBtn.removeEventListener('click', createHintsList);
     showPicturesBtn.removeEventListener('click', createPasswordSection);
+    showPicturesBtn.removeEventListener('click', createHintsList);
 
     let div1 = document.querySelector('.div1');
-
-    let input = document.createElement('input');
-    input.setAttribute('type', 'text');
-    input.setAttribute('class', 'div1input');
 
     let checkBtn = document.createElement('button');
     checkBtn.setAttribute('class', 'myBtn checkBtn');
     checkBtn.innerText = 'check password';
     checkBtn.addEventListener('click', checkPassword);
-    
+
+    let input = document.createElement('input');
+    input.setAttribute('type', 'text');
+    input.setAttribute('class', 'div1input');
+    input.addEventListener('keyup', function(e) {
+        e.preventDefault();
+        if (e.keyCode === 13) {
+            document.querySelector('.checkBtn').click();
+        }
+    });
 
     div1.appendChild(input);
     div1.appendChild(checkBtn);
@@ -124,18 +131,25 @@ function checkPassword() {
     let password = 'DOM';
     let input = document.querySelector('.div1input');
     let inputValue = input.value;
-
+    
     if ( inputValue === password) {
         createGalery();
     } else {
         alert('You missed...');
     }
+
+    let checkBtn = document.querySelector('.checkBtn');
+    checkBtn.removeEventListener('click', checkPassword);
+    
 }
 
 function createGalery(){
 
     let container = document.querySelector('.container');
 
+    let p = document.createElement('p');
+    p.innerText = 'Great! Here I have some pictures for you :)'
+    
     let div2 = document.createElement('div');
     div2.setAttribute('class', 'div2 myDiv galeryDiv');
 
@@ -168,7 +182,7 @@ function createGalery(){
     photoDiv2.appendChild(img2);
     photoDiv3.appendChild(img3);
 
-
+    div2.appendChild(p);
     div2.appendChild(photoDiv0);
     div2.appendChild(photoDiv1);
     div2.appendChild(photoDiv2);
