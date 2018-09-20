@@ -101,3 +101,13 @@ html, body {
 .display {
     display: block;
 }
+
+.clicksDiv {
+    margin: auto;
+    text-align: center;
+}
+
+.counter {
+    font-size: 36px;
+    color: crimson;
+}

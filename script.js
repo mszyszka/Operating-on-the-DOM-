@@ -142,7 +142,7 @@ function createDiv2() {
 
     let button = document.createElement('button');
     button.setAttribute('class', 'myBtn relodeBtn');
-    button.innerText = 'Relode page';
+    button.innerText = 'Relode page and take second path';
     button.addEventListener('click', function reload() {
         location.reload();
     })
@@ -189,27 +189,57 @@ function createDiv2() {
 
 
 function createDiv3() {
-    let div3 = document.createElement('div');
-    div3.setAttribute('class', 'myDiv div3');
-    div3.addEventListener('mousemove', userMovingMouse)
-
-    let p = document.createElement('p');
-    p.innerText = 'Move cursor or finger across this field for five seconds';
-
+    // let counter = 0;
     let container = document.querySelector('.container');
 
-    div3.appendChild(p);
+    let div3 = document.createElement('div');
+    div3.setAttribute('class', 'myDiv div3');
+    div3.addEventListener('click', count);
+    // div3.removeEventListener('click', counter);
+
+    let p0 = document.createElement('p');
+    p0.innerText = 'Click on this box exactly seven times';
+
+    // let clicksDiv = document.createElement('div');
+    // clicksDiv.setAttribute('class', 'clicksDiv');
+
+    // let p1 = document.createElement('p');
+    // p1.setAttribute('class', 'counter');
+
+
+    // div3.addEventListener('click', function(){
+    //     counter = counter +1;
+    //     p1.innerText = counter;
+    //     div3.appendChild(clicksDiv);
+    // })
+
+    div3.appendChild(p0);
+    // clicksDiv.appendChild(p1)
+
     container.appendChild(div3);
 }
 
-function userMovingMouse() {
-    let myNumber = '100';
-    let counter = MouseEvent.toString;
+function count() {
 
-    console.log(counter);
+    let counter = 1;
+    let div3 = document.querySelector('.div3');
+    div3.removeEventListener('click', count);
 
-    if (counter == myNumber) {
-        alert('mamy to');
-    }
+    let clicksDiv = document.createElement('div');
+    clicksDiv.setAttribute('class', 'clicksDiv');
+
+    let p1 = document.createElement('p');
+    p1.setAttribute('class', 'counter');
+
+    div3.addEventListener('click', function() {
+        counter = counter +1;
+        p1.innerText = counter;
+    })
+
+    clicksDiv.appendChild(p1);
+    div3.appendChild(clicksDiv);
+
 }
+
+
 
