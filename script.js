@@ -1,4 +1,7 @@
 function createDiv0() {
+    let clickOnMeButton = document.querySelector('.clickOnMe');
+    clickOnMeButton.removeEventListener('click', createDiv0);
+
     let h1Text = 'Taki nagłówek dla diva';
     let pText = 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur';
     let container = document.querySelector('.container');
@@ -34,7 +37,10 @@ function createDiv0() {
 let clickOnMeButton = document.querySelector('.clickOnMe');
 clickOnMeButton.addEventListener('click', createDiv0);
 
+
 function createDiv1() {
+    
+
     let container = document.querySelector('.container');
 
     let div1 = document.createElement('div');
@@ -189,33 +195,16 @@ function createDiv2() {
 
 
 function createDiv3() {
-    // let counter = 0;
     let container = document.querySelector('.container');
 
     let div3 = document.createElement('div');
     div3.setAttribute('class', 'myDiv div3');
     div3.addEventListener('click', count);
-    // div3.removeEventListener('click', counter);
 
     let p0 = document.createElement('p');
     p0.innerText = 'Click on this box exactly seven times';
 
-    // let clicksDiv = document.createElement('div');
-    // clicksDiv.setAttribute('class', 'clicksDiv');
-
-    // let p1 = document.createElement('p');
-    // p1.setAttribute('class', 'counter');
-
-
-    // div3.addEventListener('click', function(){
-    //     counter = counter +1;
-    //     p1.innerText = counter;
-    //     div3.appendChild(clicksDiv);
-    // })
-
     div3.appendChild(p0);
-    // clicksDiv.appendChild(p1)
-
     container.appendChild(div3);
 }
 
@@ -228,18 +217,49 @@ function count() {
     let clicksDiv = document.createElement('div');
     clicksDiv.setAttribute('class', 'clicksDiv');
 
+    let p = document.createElement('p');
+    p.setAttribute('class', 'counter');
+    p.innerText = counter;
+
     let p1 = document.createElement('p');
     p1.setAttribute('class', 'counter');
+    p1.innerText = 'Yea, You\'re good...';
+
+    let p2 = document.createElement('p');
+    p2.setAttribute('class', 'counter');
+    p2.innerText = 'But I don\'t have time to create present for You like this photo galery on the end of first path. I hope You\'ll be ok!';
+
 
     div3.addEventListener('click', function() {
         counter = counter +1;
-        p1.innerText = counter;
+        p.innerText = counter;
+
+        if (counter == 7) {
+            clicksDiv.removeChild(p);
+            clicksDiv.appendChild(p1);
+            clicksDiv.appendChild(p2);
+            
+            createReloder();
+
+        }
     })
 
-    clicksDiv.appendChild(p1);
+    clicksDiv.appendChild(p);
     div3.appendChild(clicksDiv);
 
 }
 
 
 
+function createReloder() {
+    let div3 = document.querySelector('.div3');
+
+    let button = document.createElement('button');
+    button.setAttribute('class', 'myBtn relodeBtn');
+    button.innerText = 'Relode page and take first path';
+    button.addEventListener('click', function reload() {
+        location.reload();
+    });
+
+    div3.appendChild(button);
+}
